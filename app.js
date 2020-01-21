@@ -2,7 +2,7 @@
 const form = document.querySelector('#task-form');
 const taskList = document.querySelector('.collection');
 const clearBtn = document.querySelector('.clear-tasks');
-const filter = doument.querySelector('#filter');
+const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
 
 // function to LOad all event listeners
@@ -40,12 +40,13 @@ function addTask(e) {
     li.appendChild(link);
 
     //append li to the ul
-    console.log(li);
+    // console.log(li);
     taskList.appendChild(li);
 
+    //clear input
     taskInput.value = '';
 
-    //clear input
+    
 
 
     e.preventDefault();
