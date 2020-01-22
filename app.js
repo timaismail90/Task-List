@@ -11,6 +11,8 @@ loadEventListeners();
 
 // function 
 function loadEventListeners() {
+    // DOM Load Event 
+    document.addEventListener('DOMContentLoaded', getTasks);
     //add task event 
     form.addEventListener('submit', addTask);
     // Remove task Event
@@ -21,6 +23,39 @@ function loadEventListeners() {
     filter.addEventListener('keyUp', filterTasks);
 
 }
+// Get Tasks from LS
+function getTasks(){
+    let tasks;
+    if(localStorage.getItem('tasks') === null){
+        tasks = [];
+    } else {
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+
+    tasks.forEach(function(task){
+        //create li element
+        const li = document.createElement('li');
+        // Add class
+        li.className = 'collection-item';
+
+        // create text-node and append to the Li
+        li.appendChild(document.createTextNode(task));
+
+        // Create new link elemtn 
+        const link = document.createElement('a');
+        link.className = 'delete-item secondary-content';
+        //add icon tml TASKS
+        link.innerHTML = '<i class="fa fa-remove"></i>';
+        //append the link to the li
+        li.appendChild(link);
+
+        //append li to the ul
+        // console.log(li);
+        taskList.appendChild(li);
+
+    })
+
+} 
 
 
 //Add task function 
