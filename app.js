@@ -146,6 +146,13 @@ function clearTasks(){
     }
 
     // Faster
+    //clear from LS
+clearTasksFromLocalStorage();
+
+}
+//clear Tasks from LS
+function clearTasksFromLocalStorage(){
+    localStorage.clear();
 
 }
 
